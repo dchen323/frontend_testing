@@ -34,9 +34,20 @@ describe("render", () => {
   });
 
   describe("word has been guessed", () => {
-    it("does not renders input box", () => {});
+    let wrapper;
+    beforeEach(() => {
+      const initialState = { success: true };
+      wrapper = setup(initialState);
+    });
+    it("does not renders input box", () => {
+      const inputBox = findByTestAttr(wrapper, "input-box");
+      expect(inputBox.length).toBe(0);
+    });
 
-    it("does not renders input box", () => {});
+    it("does not renders input box", () => {
+      const submitButton = findByTestAttr(wrapper, "submit-button");
+      expect(submitButton.length).toBe(0);
+    });
   });
 });
 
