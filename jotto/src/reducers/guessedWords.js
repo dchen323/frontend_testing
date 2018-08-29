@@ -1,3 +1,10 @@
-export default (state, action) => {
-  return null;
+import { GUESS_WORD } from "../actions";
+
+export default (state = [], action) => {
+  switch (action.type) {
+    case GUESS_WORD:
+      return [...state, action.payload];
+    default:
+      return state;
+  }
 };
